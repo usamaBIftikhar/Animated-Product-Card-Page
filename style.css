@@ -13,6 +13,7 @@ body{
     padding: 10px;
     border: 5px;
     box-shadow: 0px 5px 25px #1b1a1a;
+    border-radius: 5px;
 }
 .main{
     display: flex;
@@ -32,4 +33,101 @@ body{
     align-items: center;
     z-index: 1;
     cursor: pointer;
+}
+.container .card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6e5e5;
+    box-shadow: 0px 10px 25px #1b1a1a;
+    backdrop-filter: blur(15px);
+}
+.container .card:hover .image{
+    transform: translateY(-80px);
+}
+.container .card:hover .image img{
+    transform: translate(-20px,-40px) rotate(25deg) scale(1.2);
+}
+.container .card::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(14,13,13);
+    clip-path: circle(30% at 0% 100%);
+}
+.container .card::after{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(14,13,13);
+    clip-path: circle(30% at 100% 0%);
+}
+
+.container .card .image{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+.container .card .image img{
+    max-width: 100%;
+    transition: 0.5s ease-in-out;
+}
+.container .card .image h2{
+    max-width: 100%;
+    margin-bottom: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.container .card .details{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease-in;
+}
+.container .card .details .price, .container .card .details .brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .card .details .price p, .container .card .details .brand p{
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    background: #1b1a1a;
+    color: #fff;
+    border-radius: 5px;
+}
+.container .card .details a{
+    text-align: center;
+    background: #1b1a1a;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px ;
+    border-radius: 50px;
+    font-weight: 700;
+}
+.container .card:hover .details{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-40px);
 }
